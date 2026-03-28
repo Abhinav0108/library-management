@@ -16,7 +16,7 @@ The **"For You ✦"** section uses a smart genre-based recommendation engine tha
 - Recommends **available books in your favourite genres** that you haven't read yet
 - Automatically **tops up to 4 cards** with other available books if genre picks run short
 - Falls back to **popular/newest books** for new users with no history
-- Updates dynamically — the more you borrow, the smarter it gets
+- Updates dynamically - the more you borrow, the smarter it gets
 
 ### 🔐 Authentication
 - Email + password login & registration
@@ -26,7 +26,7 @@ The **"For You ✦"** section uses a smart genre-based recommendation engine tha
 ### 📖 Library Features
 - Full **book catalog** with search & pagination
 - **Borrow & Return** system with real-time availability update
-- **My Borrowings** — personal borrow history per user
+- **My Borrowings** - personal borrow history per user
 - **Inventory view** with 5-book preview + "Show All" toggle
 - **Recent Activity** feed (last 5 actions, live)
 
