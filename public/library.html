@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LibraryNxt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="saas-theme">
+  <!-- Navbar -->
+  <nav class="saas-navbar">
+    <div class="saas-nav-container">
+      <div class="saas-brand">Library<span style="color:#fb923c;">Nxt</span></div>
+      <ul class="saas-nav-links">
+        <li><a href="#search" class="active">Search</a></li>
+        <li><a href="#borrow-return">Borrow & Return</a></li>
+        <li class="admin-nav admin-only"><a href="#add-book">Add Book</a></li>
+        <li><a href="#inventory">Inventory</a></li>
+        <li><a href="#recommendations" style="color:#fb923c; font-weight:700;">For&nbsp;You ✦</a></li>
+        <li><a href="#my-borrowings">My Borrowings</a></li>
+        <li class="admin-nav admin-only"><a href="admin.html" style="color:var(--accent);">Admin Panel ↗</a></li>
+      </ul>
+      <div class="saas-nav-actions">
+        <span id="roleBadge" class="admin-badge">User</span>
+        <span id="currentUserName" class="user-name">User</span>
+        <button id="logoutBtn" class="logout-text-btn">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="dashboard-container">
+    <!-- Hero -->
+    <header class="saas-hero">
+      <div class="saas-hero-bg-pattern"></div>
+      <div class="saas-hero-glow"></div>
+      <div class="saas-hero-content">
+        <div class="saas-hero-left">
+          <h1 class="hero-heading stagger-1">Next-Gen Library Management.</h1>
+          <p class="hero-subtext stagger-2">Streamline your library operations with our powerful, modern data-rich software.</p>
+          <a href="#search" class="pill-btn hero-cta stagger-3">Get Started</a>
+        </div>
+        <div class="saas-hero-right stagger-4">
+          <div class="glass-card stats-card">
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-number count-up" id="totalBooks">0</div>
+                <div class="stat-label">Total Books</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number count-up" id="issuedBooks" style="color: var(--green);">0</div>
+                <div class="stat-label">Issued Books</div>
+              </div>
+            </div>
+            <div class="chart-container">
+              <div class="chart-flex">
+                <div class="chart-svg-wrapper">
+                  <svg width="80" height="80" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" fill="none" stroke="var(--border)" stroke-width="12" />
+                    <circle id="donut-progress" cx="50" cy="50" r="40" fill="none" stroke="var(--green)" stroke-width="12" stroke-dasharray="251.2" stroke-dashoffset="251.2" transform="rotate(-90 50 50)" style="transition: stroke-dashoffset 1s ease-out;" />
+                  </svg>
+                  <div class="chart-label" id="chartText">0%</div>
+                </div>
+                <div class="chart-desc">Books Issued</div>
+              </div>
+            </div>
+            <div class="recent-activity-minimal">
+              <h4>Recent Activity</h4>
+              <ul id="recentActivityList">
+                 <!-- skeleton shimmer dynamically replaced -->
+                 <div class="skeleton-shimmer"></div>
+                 <div class="skeleton-shimmer" style="width: 80%"></div>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="saas-sections-wrapper">
+      
+      <!-- Search -->
+      <section id="search" class="saas-section scroll-reveal">
+        <h2 class="section-heading"><span>Search Catalog</span></h2>
+        <div class="glass-card form-card">
+          <div class="flex-input-group">
+            <input type="text" id="searchInput" class="saas-input" placeholder="Search by title or author" />
+            <button class="pill-btn saas-search-btn" onclick="searchBooks()">Search</button>
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="saas-table">
+            <thead><tr><th>ID</th><th>Title</th><th>Author</th><th>Status</th></tr></thead>
+            <tbody id="searchResultsTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Borrow Return -->
+      <section id="borrow-return" class="saas-section scroll-reveal">
+        <h2 class="section-heading"><span>Borrow & Return</span></h2>
+        <div class="split-glass-card">
+          <div class="split-half">
+            <h3>Borrow a Book</h3>
+            <div class="saas-input-group">
+              <label>Book ID</label>
+              <input type="number" id="modalBookId" class="saas-input" placeholder="Enter Book ID to Borrow" />
+            </div>
+            <button class="pill-btn full-width" id="modalBorrowBtn">Borrow Book</button>
+          </div>
+          <div class="split-half return-half">
+            <h3>Return a Book</h3>
+            <div class="saas-input-group">
+              <label>Book ID</label>
+              <input type="number" id="returnBookId" class="saas-input" placeholder="Enter Book ID to Return" />
+            </div>
+            <button class="pill-btn full-width ghost-btn" id="modalReturnBtn2">Return Book</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Add Book -->
+      <section id="add-book" class="saas-section scroll-reveal admin-section admin-only">
+        <h2 class="section-heading"><span>Add New Book</span></h2>
+        <div class="glass-card">
+          <div class="grid-inputs">
+            <div class="saas-input-group">
+              <label>Title</label>
+              <input type="text" id="newBookTitle" class="saas-input" placeholder="e.g. 1984" />
+            </div>
+            <div class="saas-input-group">
+              <label>Author</label>
+              <input type="text" id="newBookAuthor" class="saas-input" placeholder="e.g. George Orwell" />
+            </div>
+            <div class="saas-input-group">
+              <label>Genre</label>
+              <select id="newBookGenre" class="saas-input saas-select">
+                <option value="Classic">Classic</option>
+                <option value="Dystopian">Dystopian</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Non-Fiction">Non-Fiction</option>
+                <option value="Fantasy">Fantasy</option>
+              </select>
+            </div>
+            <div class="saas-input-group">
+              <label>Year</label>
+              <input type="number" id="newBookYear" class="saas-input" placeholder="e.g. 1949" />
+            </div>
+          </div>
+          <button class="pill-btn full-width mt-20" id="addBookBtn" onclick="adminAddBook()">Add Book</button>
+        </div>
+      </section>
+
+      <!-- Inventory -->
+      <section id="inventory" class="saas-section scroll-reveal">
+        <h2 class="section-heading"><span>Inventory</span></h2>
+        <div class="table-container">
+          <table class="saas-table">
+            <thead><tr><th>ID</th><th>Title</th><th>Author</th><th>Year</th><th>Status</th><th id="actionsHeader" style="display:none;">Actions</th></tr></thead>
+            <tbody id="inventoryTable"></tbody>
+          </table>
+        </div>
+        <div style="text-align:center; margin-top:20px;">
+          <button id="showAllBooksBtn" class="ghost-btn pill-btn" style="display:none;">Show All Books</button>
+        </div>
+      </section>
+
+      <!-- AI Recommended Books -->
+      <section id="recommendations" class="saas-section scroll-reveal">
+        <div class="reco-header">
+          <div>
+            <h2 class="section-heading" style="margin-bottom:4px;"><span>Recommended for You</span></h2>
+            <p class="reco-subtitle">Picked by AI based on your reading history</p>
+          </div>
+          <span class="ai-badge">✦ AI</span>
+        </div>
+        <div class="reco-grid" id="recoGrid">
+          <div class="reco-skeleton"></div>
+          <div class="reco-skeleton"></div>
+          <div class="reco-skeleton"></div>
+          <div class="reco-skeleton"></div>
+        </div>
+      </section>
+
+      <!-- My Borrowings -->
+      <section id="my-borrowings" class="saas-section scroll-reveal">
+        <h2 class="section-heading"><span>My Borrowings</span></h2>
+        <div class="table-container">
+          <table class="saas-table">
+            <thead><tr><th>ID</th><th>Title</th><th>Author</th></tr></thead>
+            <tbody id="myBorrowingsTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Edit Book Modal (admin) -->
+  <div class="modal-overlay" id="libEditModal">
+    <div class="modal-box">
+      <button class="modal-close" id="libEditModalClose">&times;</button>
+      <h3 class="modal-title">Edit Book</h3>
+      <input type="hidden" id="libEditBookId" />
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="saas-input-group" style="grid-column:1/-1;">
+          <label>Title</label>
+          <input type="text" id="libEditTitle" class="saas-input" />
+        </div>
+        <div class="saas-input-group">
+          <label>Author</label>
+          <input type="text" id="libEditAuthor" class="saas-input" />
+        </div>
+        <div class="saas-input-group">
+          <label>Genre</label>
+          <input type="text" id="libEditGenre" class="saas-input" />
+        </div>
+        <div class="saas-input-group">
+          <label>Year</label>
+          <input type="number" id="libEditYear" class="saas-input" />
+        </div>
+      </div>
+      <button class="pill-btn full-width mt-20" id="libEditSaveBtn">Save Changes</button>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+  <script src="script.js"></script>
+</body>
+</html>

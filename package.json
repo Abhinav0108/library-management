@@ -1,0 +1,15 @@
+{
+    "name": "library-management",
+    "version": "1.0.0",
+    "description": "A modern library management system with search, borrow, return, AI recommendations, and book addition.",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.20.1",
+        "express": "^4.18.2",
+        "mysql2": "^3.20.0",
+        "sqlite3": "^6.0.1"
+    }
+}

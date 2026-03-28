@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LibraryNxt — Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="login.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="login-body">
+
+  <!-- Ambient background -->
+  <div class="login-bg">
+    <div class="login-bg-orb orb-1"></div>
+    <div class="login-bg-orb orb-2"></div>
+    <div class="login-bg-orb orb-3"></div>
+  </div>
+
+  <div class="login-page-wrapper">
+    <div class="login-modal">
+
+      <!-- ═══════════════════════════════════════════════
+           LEFT PANEL
+      ═══════════════════════════════════════════════ -->
+      <div class="login-left">
+        <div class="brand-logo">Library<span class="brand-nxt">Nxt</span></div>
+
+        <div class="login-tagline">
+          <h2>Read more,<br/><em>achieve more.</em></h2>
+          <p>Your next great book is waiting. Access the full catalog, track borrowings, and stay organised.</p>
+        </div>
+
+        <!-- Decorative illustration — CSS/SVG, always on-theme -->
+        <div class="decorative-book-area">
+          <svg class="book-svg" viewBox="0 0 280 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left page -->
+            <path d="M140 170 L30 145 L30 40 Q85 20 140 55 Z"
+              fill="rgba(248,113,113,0.05)" stroke="rgba(248,113,113,0.35)" stroke-width="1.2"/>
+            <!-- Right page -->
+            <path d="M140 170 L250 145 L250 40 Q195 20 140 55 Z"
+              fill="rgba(251,146,60,0.05)" stroke="rgba(251,146,60,0.35)" stroke-width="1.2"/>
+            <!-- Spine -->
+            <line x1="140" y1="55" x2="140" y2="170" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+            <!-- Text lines left page -->
+            <line x1="52" y1="90" x2="134" y2="97" stroke="rgba(248,113,113,0.18)" stroke-width="1"/>
+            <line x1="52" y1="104" x2="134" y2="110" stroke="rgba(248,113,113,0.15)" stroke-width="1"/>
+            <line x1="52" y1="118" x2="120" y2="124" stroke="rgba(248,113,113,0.12)" stroke-width="1"/>
+            <line x1="52" y1="132" x2="134" y2="137" stroke="rgba(248,113,113,0.1)" stroke-width="1"/>
+            <!-- Text lines right page -->
+            <line x1="146" y1="97" x2="228" y2="90" stroke="rgba(251,146,60,0.18)" stroke-width="1"/>
+            <line x1="146" y1="110" x2="228" y2="104" stroke="rgba(251,146,60,0.15)" stroke-width="1"/>
+            <line x1="146" y1="124" x2="210" y2="118" stroke="rgba(251,146,60,0.12)" stroke-width="1"/>
+            <line x1="146" y1="137" x2="228" y2="132" stroke="rgba(251,146,60,0.1)" stroke-width="1"/>
+            <!-- Glow at spine -->
+            <ellipse cx="140" cy="170" rx="30" ry="6" fill="rgba(248,113,113,0.15)"/>
+          </svg>
+          <blockquote class="login-quote">
+            &ldquo;A reader lives a thousand lives before he dies.&rdquo;
+            <cite>— George R.R. Martin</cite>
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════
+           RIGHT PANEL — glass form
+      ═══════════════════════════════════════════════ -->
+      <div class="login-right">
+        <div class="close-icon">&times;</div>
+        <div class="form-container">
+
+          <div class="auth-header">
+            <h2 id="authTitle" class="auth-title">Welcome back</h2>
+            <p class="auth-subtitle" id="authSubtitle">Sign in to your LibraryNxt account</p>
+          </div>
+
+          <!-- Google button -->
+          <div class="social-logins">
+            <button type="button" class="social-btn google" id="googleLoginBtn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M17.64 9.205c0-.639-.057-1.252-.164-1.841H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908C16.658 14.205 17.64 11.92 17.64 9.205Z" fill="#4285F4"/>
+                <path d="M9 18c2.43 0 4.467-.806 5.956-2.18L12.048 13.56C11.24 14.1 10.21 14.42 9 14.42c-2.341 0-4.326-1.582-5.036-3.71H.957v2.332A8.997 8.997 0 0 0 9 18Z" fill="#34A853"/>
+                <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.595.102-1.171.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042L3.964 10.71Z" fill="#FBBC05"/>
+                <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.674 5.163 6.659 3.58 9 3.58Z" fill="#EA4335"/>
+              </svg>
+              Continue with Google
+            </button>
+          </div>
+
+          <div class="divider"><span>or continue with email</span></div>
+
+          <form id="authForm">
+            <!-- Name field (sign-up only) -->
+            <div class="input-wrapper" id="nameWrapper">
+              <label>Full Name</label>
+              <div class="input-field">
+                <span class="input-icon">
+                  <!-- Person icon -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                  </svg>
+                </span>
+                <input type="text" id="authName" autocomplete="name" />
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="input-wrapper">
+              <label>Email Address</label>
+              <div class="input-field">
+                <span class="input-icon">
+                  <!-- Envelope icon -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m2 7 10 7 10-7"/>
+                  </svg>
+                </span>
+                <input type="email" id="authEmail" autocomplete="email" required />
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="input-wrapper">
+              <label>Password</label>
+              <div class="input-field">
+                <span class="input-icon">
+                  <!-- Lock icon -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                  </svg>
+                </span>
+                <input type="password" id="authPassword" autocomplete="current-password" required />
+                <!-- Eye SVG toggle -->
+                <span class="toggle-password" id="togglePassword">
+                  <svg id="eyeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <!-- Forgot -->
+            <div class="forgot-row">
+              <div class="forgot-password" id="forgotPasswordDiv">
+                <a href="#">Forgot password?</a>
+              </div>
+            </div>
+
+            <button type="submit" class="primary-btn" id="authSubmitBtn">Log In</button>
+            <p id="authMessage" class="auth-message"></p>
+
+            <div class="toggle-mode">
+              <span id="toggleText">Don't have an account? </span>
+              <a href="#" id="toggleAuthMode">Sign up here</a>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+    </div><!-- .login-modal -->
+  </div><!-- .login-page-wrapper -->
+
+  <!-- Google One Tap hidden div -->
+  <div id="g_id_onload"
+       data-client_id="YOUR_GOOGLE_CLIENT_ID"
+       data-callback="handleGoogleCredential"
+       data-auto_prompt="false">
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
