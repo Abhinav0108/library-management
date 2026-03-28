@@ -8,9 +8,9 @@
 
 ---
 
-## ✨ Features
+## Features
 
-### 🤖 AI-Powered Book Recommendations
+### AI-Powered Book Recommendations
 The **"For You ✦"** section uses a smart genre-based recommendation engine that:
 - Analyses your **personal borrowing history** to identify your preferred genres
 - Recommends **available books in your favourite genres** that you haven't read yet
@@ -18,19 +18,19 @@ The **"For You ✦"** section uses a smart genre-based recommendation engine tha
 - Falls back to **popular/newest books** for new users with no history
 - Updates dynamically - the more you borrow, the smarter it gets
 
-### 🔐 Authentication
+### Authentication
 - Email + password login & registration
 - Google Sign-In (OAuth via Google Identity Services)
 - Role-based access: **Admin** vs **User**
 
-### 📖 Library Features
+### Library Features
 - Full **book catalog** with search & pagination
 - **Borrow & Return** system with real-time availability update
 - **My Borrowings** - personal borrow history per user
 - **Inventory view** with 5-book preview + "Show All" toggle
 - **Recent Activity** feed (last 5 actions, live)
 
-### 🛠️ Admin Panel
+### Admin Panel
 - KPI dashboard: Total Books, Available, Issued, Users, Genres
 - **Books by Genre** bar chart (Chart.js)
 - **Borrow Activity** line chart (last 30 days)
@@ -38,7 +38,7 @@ The **"For You ✦"** section uses a smart genre-based recommendation engine tha
 - View all issued books + **Force Return**
 - User management (view & remove users)
 
-### 🎨 Design
+### Design
 - Premium **dark-mode SaaS aesthetic**
 - Glassmorphism cards with backdrop blur
 - Animated SVG book illustration on login
@@ -47,7 +47,7 @@ The **"For You ✦"** section uses a smart genre-based recommendation engine tha
 
 ---
 
-## 🗂️ Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -60,7 +60,7 @@ The **"For You ✦"** section uses a smart genre-based recommendation engine tha
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - [Node.js](https://nodejs.org/) v16+
@@ -94,7 +94,7 @@ http://localhost:3000
 
 ---
 
-## 🔑 Default Login
+## Default Login
 
 | Role | Email | Password |
 |---|---|---|
@@ -104,7 +104,7 @@ http://localhost:3000
 
 ---
 
-## 🤖 How AI Recommendations Work
+##  How AI Recommendations Work
 
 ```
 User borrows books
@@ -144,7 +144,7 @@ library-management/
 
 ---
 
-## 📸 Pages
+##  Pages
 
 | Page | Description |
 |---|---|
