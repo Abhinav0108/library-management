@@ -6,6 +6,8 @@
 ![Node.js](https://img.shields.io/badge/Node.js-Express-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-XAMPP-00758F?style=for-the-badge&logo=mysql&logoColor=white)
 
+**Live Demo:** [https://librarynxt.duckdns.org/](https://librarynxt.duckdns.org/)
+
 ---
 
 ## Features
